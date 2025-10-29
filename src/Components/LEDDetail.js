@@ -9,7 +9,6 @@ function LEDDetail() {
   const navigate = useNavigate();
   const cart = useContext(CartContext);
 
-  // Get LED product from centralized data
   const ledProduct = allProducts.find(item => item.id === parseInt(ledId));
 
   if (!ledProduct) {
@@ -66,7 +65,7 @@ function LEDDetail() {
               id: ledProduct.id,
               name: ledProduct.name,
               price: ledProduct.price,
-              image: ledProduct.image, // Use 'image' for consistency
+              image: ledProduct.image, 
               description: ledProduct.description
             })}
           >

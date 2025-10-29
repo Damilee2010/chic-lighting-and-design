@@ -1,6 +1,6 @@
 export const allProducts = [
    {id: 1,
-      image: "/images/outdoor-lantern.jpg",
+      image: "/Images/outdoor-lantern.jpg",
       name: "Aurora Outdoor Lantern",
       description: "Stylish weather-resistant lantern perfect for patios.",
       type: "durable",
@@ -17,7 +17,7 @@ export const allProducts = [
     },
     {
       id: 2,
-      image: "/images/accent-light.jpg",
+      image: "/Images/accent-light.jpg",
       name: "Luna Wall Sconce",
       description: "Decorative wall-mounted light for ambient spaces.",
       type: "decor",
@@ -34,7 +34,7 @@ export const allProducts = [
     },
     {
       id: 3,
-      image: "/images/desk-lamp.jpg",
+      image: "/Images/desk-lamp.jpg",
       name: "Nova Desk Lamp",
       description: "Sleek adjustable desk lamp with dimmable light.",
       type: "modern",
@@ -51,7 +51,7 @@ export const allProducts = [
     },
     {
       id: 4,
-      image: "/images/zen-accent-light.jpg",
+      image: "/Images/zen-accent-light.jpg",
       name: "Zen Accent Light",
       description: "Compact table light with a minimalist design.",
       type: "classic",
@@ -68,7 +68,7 @@ export const allProducts = [
     },
     {
       id: 5,
-      image: "/images/vintage-lamp.jpg",
+      image: "/Images/vintage-lamp.jpg",
       name: "Edison Vintage Lamp",
       description: "Classic filament-style lamp with brass finish.",
       type: "durable",
@@ -85,7 +85,7 @@ export const allProducts = [
     },
     {
       id: 6,
-      image: "/images/chandelier.jpg",
+      image: "/Images/chandelier.jpg",
       name: "Celeste Crystal Chandelier",
       description: "Elegant hanging chandelier with crystal details.",
       type: "classic",
@@ -102,7 +102,7 @@ export const allProducts = [
     },
     {
       id: 7,
-      image: "/images/floor-lamp.jpg",
+      image: "/Images/floor-lamp.jpg",
       name: "Verona Floor Lamp",
       description: "Tall standing lamp with sleek silhouette.",
       type: "modern",
@@ -119,7 +119,7 @@ export const allProducts = [
     },
     {
       id: 8,
-      image: "/images/aria-reading-lamp.jpg",
+      image: "/Images/aria-reading-lamp.jpg",
       name: "Aria Reading Lamp",
       description: "Floor lamp ideal for study or lounge spaces.",
       type: "decor",
@@ -136,7 +136,7 @@ export const allProducts = [
     },
     {
       id: 9,
-      image: "/images/table-lamp.jpg",
+      image: "/Images/table-lamp.jpg",
       name: "Amber Table Lamp",
       description: "Warm-glow bedside lamp with linen shade.",
       type: "decor",
@@ -153,7 +153,7 @@ export const allProducts = [
     },
     {
       id: 10,
-      image: "/images/pendant-lamp.jpg",
+      image: "/Images/pendant-lamp.jpg",
       name: "Orion Pendant Lamp",
       description: "Industrial ceiling lamp with matte finish.",
       type: "modern",
@@ -170,7 +170,7 @@ export const allProducts = [
     },
     {
       id: 11,
-      image: "/images/atlas-garden-lantern.jpg",
+      image: "/Images/atlas-garden-lantern.jpg",
       name: "Atlas Garden Lantern",
       description: "Outdoor lantern perfect for garden pathways.",
       type: "classic",
@@ -187,7 +187,7 @@ export const allProducts = [
     },
     {
       id: 12,
-      image: "/images/halo-patio-light.jpg",
+      image: "/Images/halo-patio-light.jpg",
       name: "Halo Patio Light",
       description: "Circular lantern ideal for decks and terraces.",
       type: "durable",
@@ -204,7 +204,7 @@ export const allProducts = [
     },
     {
       id: 13,
-      image: "/images/nimbus-lantern.jpg",
+      image: "/Images/nimbus-lantern.jpg",
       name: "Nimbus Lantern",
       description: "Portable lantern with USB rechargeable light.",
       type: "durable",
@@ -221,7 +221,7 @@ export const allProducts = [
     },
     {
       id: 14,
-      image: "/images/solara-hanging-light.jpg",
+      image: "/Images/solara-hanging-light.jpg",
       name: "Solara Hanging Light",
       description: "Hanging outdoor lantern with solar panel top.",
       type: "decor",
@@ -238,7 +238,7 @@ export const allProducts = [
     },
     {
       id: 15,
-      image: "/images/lyra-outdoor-lantern.jpg",
+      image: "/Images/lyra-outdoor-lantern.jpg",
       name: "Lyra Outdoor Lantern",
       description: "Elegant modern lantern with frosted glass shade.",
       type: "modern",
@@ -255,7 +255,7 @@ export const allProducts = [
     },
     {
       id: 16,
-      image: "/images/helios-patio-torch.jpg",
+      image: "/Images/helios-patio-torch.jpg",
       name: "Helios Patio Torch",
       description: "Outdoor lantern with warm firelight imitation.",
       type: "classic",
@@ -272,7 +272,7 @@ export const allProducts = [
     },
     {
       id: 17,
-      image: "/images/eclipse-garden-lamp.jpg",
+      image: "/Images/eclipse-garden-lamp.jpg",
       name: "Eclipse Garden Lamp",
       description: "Minimalist outdoor lamp for landscape highlights.",
       type: "durable",
@@ -293,7 +293,7 @@ export const allProducts = [
     description: "Warm white, 8W",
     type: "led",
     price: "$12",
-    image: "/images/led-spot.jpg",
+    image: "/Images/led-spot.jpg",
     rating: "⭐⭐⭐⭐",
     fullDescription: "High-quality LED spot light with warm white illumination, perfect for accent lighting.",
     features: ["8W power consumption", "Warm white light", "Long lifespan", "Energy efficient"],
@@ -311,7 +311,7 @@ export const allProducts = [
     description: "RGB, 5W",
     type: "led",
     price: "$24",
-    image: "/images/led-decoration.jpg",
+    image: "/Images/led-decoration.jpg",
     rating: "⭐⭐⭐⭐",
     fullDescription: "Colorful RGB LED decoration lights for creating vibrant atmospheres.",
     features: ["RGB color changing", "Remote control", "Multiple modes", "Water resistant"],
@@ -329,7 +329,7 @@ export const allProducts = [
     description: "Adjustable, 10W",
     type: "led",
     price: "$39",
-    image: "/images/apart-led.jpg",
+    image: "/Images/apart-led.jpg",
     rating: "⭐⭐⭐⭐⭐",
     fullDescription: "Versatile apart LED light with adjustable brightness and direction.",
     features: ["10W power", "Adjustable angles", "Dimmable", "Modern design"],
@@ -347,7 +347,7 @@ export const allProducts = [
     description: "Flexible strip, 2m",
     type: "led",
     price: "$18",
-    image: "/images/strip-led.jpg",
+    image: "/Images/strip-led.jpg",
     rating: "⭐⭐⭐⭐",
     fullDescription: "Flexible LED strip perfect for under-cabinet lighting and decorative purposes.",
     features: ["2 meter length", "Flexible design", "Easy installation", "Cuttable"],
@@ -365,7 +365,7 @@ export const allProducts = [
     description: "Slim panel, 12W",
     type: "led",
     price: "$29",
-    image: "/images/led-panel.jpg",
+    image: "/Images/led-panel.jpg",
     rating: "⭐⭐⭐⭐",
     fullDescription: "Slim LED panel providing uniform lighting for offices and homes.",
     features: ["Slim design", "Uniform light", "Energy efficient", "Flicker-free"],

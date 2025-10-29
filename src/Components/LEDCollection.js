@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from '../contexts/CartContext';
-import { allProducts } from '../Components/ProductData'; // Import centralized data
+import { allProducts } from '../Components/ProductData'; 
 import "../styles/Led.css";
 
-// Filter only LED products from the centralized data
+
 const ledItems = allProducts.filter(product => product.id >= 201 && product.id <= 205);
 
 function LEDCollection() {
