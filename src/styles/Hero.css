@@ -12,9 +12,10 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: var(--bg);
+  width: 100%;
+  height: auto;
   color: var(--text);
   padding-top: var(--header-height);
-  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 section {
@@ -71,11 +72,6 @@ img {
   display: block;
 }
 
-/* HERO SECTION - MOBILE FIRST APPROACH */
-/* ============================================= */
-/*  HERO SECTION – FINAL RESPONSIVE FIXES        */
-/* ============================================= */
-
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -103,6 +99,7 @@ img {
   line-height: 1.15;
   margin: 0;
   font-weight: 700;
+  overflow: hidden;
 }
 .hero-title .span {
   color: var(--accent);
