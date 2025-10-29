@@ -7,7 +7,7 @@
     <section className="hero-section">
       <div className="hero-content">
         <h1 className="hero-title">
-          Illuminate Your Space With<br />
+          Illuminate Your Space<br />
           <span className="span">Elegance</span>
         </h1>
         <p className="hero-lead">
