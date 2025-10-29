@@ -10,7 +10,7 @@ function ProductGrid() {
   
   const [products] = useState([
     {id: 1,
-      image: "/images/outdoor-lantern.jpg",
+      image: "/Images/outdoor-lantern.jpg",
       name: "Aurora Outdoor Lantern",
       description: "Stylish weather-resistant lantern perfect for patios.",
       type: "durable",
@@ -27,7 +27,7 @@ function ProductGrid() {
     },
     {
       id: 2,
-      image: "/images/accent-light.jpg",
+      image: "/Images/accent-light.jpg",
       name: "Luna Wall Sconce",
       description: "Decorative wall-mounted light for ambient spaces.",
       type: "decor",
@@ -44,7 +44,7 @@ function ProductGrid() {
     },
     {
       id: 3,
-      image: "/images/desk-lamp.jpg",
+      image: "/Images/desk-lamp.jpg",
       name: "Nova Desk Lamp",
       description: "Sleek adjustable desk lamp with dimmable light.",
       type: "modern",
@@ -61,7 +61,7 @@ function ProductGrid() {
     },
     {
       id: 4,
-      image: "/images/zen-accent-light.jpg",
+      image: "/Images/zen-accent-light.jpg",
       name: "Zen Accent Light",
       description: "Compact table light with a minimalist design.",
       type: "classic",
@@ -78,7 +78,7 @@ function ProductGrid() {
     },
     {
       id: 5,
-      image: "/images/vintage-lamp.jpg",
+      image: "/Images/vintage-lamp.jpg",
       name: "Edison Vintage Lamp",
       description: "Classic filament-style lamp with brass finish.",
       type: "durable",
@@ -95,7 +95,7 @@ function ProductGrid() {
     },
     {
       id: 6,
-      image: "/images/chandelier.jpg",
+      image: "/Images/chandelier.jpg",
       name: "Celeste Crystal Chandelier",
       description: "Elegant hanging chandelier with crystal details.",
       type: "classic",
@@ -112,7 +112,7 @@ function ProductGrid() {
     },
     {
       id: 7,
-      image: "/images/floor-lamp.jpg",
+      image: "/Images/floor-lamp.jpg",
       name: "Verona Floor Lamp",
       description: "Tall standing lamp with sleek silhouette.",
       type: "modern",
@@ -129,7 +129,7 @@ function ProductGrid() {
     },
     {
       id: 8,
-      image: "/images/aria-reading-lamp.jpg",
+      image: "/Images/aria-reading-lamp.jpg",
       name: "Aria Reading Lamp",
       description: "Floor lamp ideal for study or lounge spaces.",
       type: "decor",
@@ -146,7 +146,7 @@ function ProductGrid() {
     },
     {
       id: 9,
-      image: "/images/table-lamp.jpg",
+      image: "/Images/table-lamp.jpg",
       name: "Amber Table Lamp",
       description: "Warm-glow bedside lamp with linen shade.",
       type: "decor",
@@ -163,7 +163,7 @@ function ProductGrid() {
     },
     {
       id: 10,
-      image: "/images/pendant-lamp.jpg",
+      image: "/Images/pendant-lamp.jpg",
       name: "Orion Pendant Lamp",
       description: "Industrial ceiling lamp with matte finish.",
       type: "modern",
@@ -180,7 +180,7 @@ function ProductGrid() {
     },
     {
       id: 11,
-      image: "/images/atlas-garden-lantern.jpg",
+      image: "/Images/atlas-garden-lantern.jpg",
       name: "Atlas Garden Lantern",
       description: "Outdoor lantern perfect for garden pathways.",
       type: "classic",
@@ -197,7 +197,7 @@ function ProductGrid() {
     },
     {
       id: 12,
-      image: "/images/halo-patio-light.jpg",
+      image: "/Images/halo-patio-light.jpg",
       name: "Halo Patio Light",
       description: "Circular lantern ideal for decks and terraces.",
       type: "durable",
@@ -214,7 +214,7 @@ function ProductGrid() {
     },
     {
       id: 13,
-      image: "/images/nimbus-lantern.jpg",
+      image: "/Images/nimbus-lantern.jpg",
       name: "Nimbus Lantern",
       description: "Portable lantern with USB rechargeable light.",
       type: "durable",
@@ -231,7 +231,7 @@ function ProductGrid() {
     },
     {
       id: 14,
-      image: "/images/solara-hanging-light.jpg",
+      image: "/Images/solara-hanging-light.jpg",
       name: "Solara Hanging Light",
       description: "Hanging outdoor lantern with solar panel top.",
       type: "decor",
@@ -248,7 +248,7 @@ function ProductGrid() {
     },
     {
       id: 15,
-      image: "/images/lyra-outdoor-lantern.jpg",
+      image: "/Images/lyra-outdoor-lantern.jpg",
       name: "Lyra Outdoor Lantern",
       description: "Elegant modern lantern with frosted glass shade.",
       type: "modern",
@@ -265,7 +265,7 @@ function ProductGrid() {
     },
     {
       id: 16,
-      image: "/images/helios-patio-torch.jpg",
+      image: "/Images/helios-patio-torch.jpg",
       name: "Helios Patio Torch",
       description: "Outdoor lantern with warm firelight imitation.",
       type: "classic",
@@ -282,7 +282,7 @@ function ProductGrid() {
     },
     {
       id: 17,
-      image: "/images/eclipse-garden-lamp.jpg",
+      image: "/Images/eclipse-garden-lamp.jpg",
       name: "Eclipse Garden Lamp",
       description: "Minimalist outdoor lamp for landscape highlights.",
       type: "durable",
