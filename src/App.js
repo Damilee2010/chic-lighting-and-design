@@ -31,14 +31,14 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<><Hero/><ProductGrid /></>} />
+        <Route path="/products" element={<ProductGrid />} />
         <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/led/:ledId" element={<LEDDetail />} />
-        <Route path="/led" element={<><Hero/><LEDCollection /></>} />
+        <Route path="/led" element={<LEDCollection />} />
         <Route path="/led-product/:id" element={<LEDDetail />} />
-        <Route path="/gallery" element={<><Hero/><Gallery /></>} />
-        <Route path="/offers" element={<><Hero/><Offers /></>} />
-        <Route path="/contact" element={<><Hero/><Contact /></>} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/offers" element={<Offers />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </React.Fragment>

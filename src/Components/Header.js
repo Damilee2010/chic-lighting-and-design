@@ -114,7 +114,7 @@ function Header() {
 
   return (
     <div className="header">
-      <h1 className="header-title"><span className="span">Chic</span> Lightings</h1>
+      <h1 className="header-title"><span className="span">Chic</span> Lightings and Designs</h1>
 
       <div className="icons">
         <button className="icon-btn" onClick={toggleSearch} aria-label="Open search">
@@ -134,60 +134,56 @@ function Header() {
       <div 
         className={`sheet-overlay ${(open || cart?.openCart || search?.openSearch) ? 'visible' : ''}`} 
         onClick={() => { 
-          close(); 
-          closeCart(); 
+          close();
+          if (cart.close) cart.close();
           handleCloseSearch();
-        }} 
-        aria-hidden={!(open || cart?.openCart || search?.openSearch)}
-      ></div>
+        }}
+        aria-hidden="true"
+      />
 
       {/* Search Overlay */}
-      <div className={`search-overlay ${search?.openSearch ? 'visible' : ''}`} aria-hidden={!search?.openSearch}>
+      <div 
+        className={`search-overlay ${search?.openSearch ? 'visible' : ''}`} 
+        aria-modal="true" 
+        role="dialog" 
+        aria-label="Search"
+      >
         <div className="search-container">
           <div className="search-box">
-            <input 
-              value={search?.query || ''} 
-              onChange={(e) => search.setQuery ? search.setQuery(e.target.value) : null}
-              onKeyPress={handleSearch}
-              placeholder="Search products..." 
+            <input
+              type="text"
+              value={search.query || ''}
+              onChange={e => search.setQuery?.(e.target.value)}
+              onKeyDown={handleSearch}
+              placeholder="Search products..."
               autoFocus
+              aria-label="Search products"
             />
-            <button 
-              className="search-action" 
-              onClick={handleSearch}
-              aria-label="Search"
-            >
-              <i className="fa-solid fa-magnifying-glass" aria-hidden="true" />
-              <span className="sr-only">Search</span>
+            <button className="search-action" onClick={handleSearch} aria-label="Search">
+              <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
             </button>
-            <button 
-              className="search-close" 
-              onClick={handleCloseSearch}
-              aria-label="Close search"
-            >
-              <i className="fa-solid fa-times" aria-hidden="true" />
+            <button className="search-close" onClick={handleCloseSearch} aria-label="Close search">
+              <i className="fa-solid fa-times" aria-hidden="true"></i>
             </button>
           </div>
 
-          {/* Search Results - Positioned directly under search box */}
-          {(search?.query && search?.openSearch) && (
+          {search.query && search.searchResults && (
             <div className="search-results-container">
               {search.isSearching ? (
-                <div className="search-loading">Searching...</div>
-              ) : search.searchResults && search.searchResults.length > 0 ? (
+                <div className="search-loading">Loading...</div>
+              ) : search.searchResults.length > 0 ? (
                 <div className="search-results-list">
                   {search.searchResults.map(product => (
                     <div 
                       key={product.id} 
-                      className="search-result-item"
+                      className="search-result-item" 
                       onClick={() => handleResultClick(product)}
                     >
                       <div className="search-result-info">
-                        <h4>{product.name}</h4>
-                        <p>{product.description || product.desc || 'No description available'}</p>
+                        <h4>{product.title || product.name}</h4>
+                        <p>{product.description || 'No description'}</p>
                         <div className="search-result-meta">
-                          <span className="search-result-price">{product.price || 'N/A'}</span>
-                          <span className="search-result-type">{product.type || 'product'}</span>
+                          <span className="search-result-price">${product.price}</span>
                           <span className="search-result-rating">{product.rating || 'No rating'}</span>
                         </div>
                         <div className="search-result-category">
@@ -209,6 +205,12 @@ function Header() {
 
       {/* Navigation Side Sheet */}
       <aside className={`side-sheet ${open ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!open}>
+        <div className="sheet-header">
+          <h3>Menu</h3>
+          <button className="sheet-close" onClick={close} aria-label="Close menu">
+            Close <i className="fa-solid fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
         {/* Mobile Actions Section - Show in menu on mobile */}
         {isMobile && (
           <div className="mobile-actions">
