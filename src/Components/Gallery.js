@@ -4,27 +4,27 @@ import "../styles/Gallery.css";
 
 function Gallery() {
   const GALLERY = [
-    { src: "/images/led-spot.jpg" },
-    { src: "/images/led-decoration.jpg" },
-    { src: "/images/accent-light.jpg" },
-    { src: "/images/atlas-garden-lantern.jpg" },
-    { src: "/images/apart-led.jpg" },
-    { src: "/images/chandelier.jpg" },
-    { src: "/images/eclipse-garden-lamp.jpg" },
-    { src: "/images/nimbus-lantern.jpg" },
-    { src: "/images/wall-sconce.jpg" },
-    { src: "/images/strip-led.jpg" },
-    { src: "/images/lyra-outdoor-lantern.jpg" },
-    { src: "/images/solara-hanging-light.jpg" },
-    { src: "/images/vintage-lamp.jpg" },
-    { src: "/images/pendant-lamp.jpg" },
-    { src: "/images/zen-accent-light.jpg" },
-    { src: "/images/outdoor-lantern.jpg" },
-    { src: "/images/desk-lamp.jpg" },
-    { src: "/images/floor-lamp.jpg" },
-    { src: "/images/aria-reading-lamp.jpg" },
-    { src: "/images/table-lamp.jpg" },
-    { src: "/images/halo-patio-light.jpg" }
+    { src: "/Images/led-spot.jpg" },
+    { src: "/Images/led-decoration.jpg" },
+    { src: "/Images/accent-light.jpg" },
+    { src: "/Images/atlas-garden-lantern.jpg" },
+    { src: "/Images/apart-led.jpg" },
+    { src: "/Images/chandelier.jpg" },
+    { src: "/Images/eclipse-garden-lamp.jpg" },
+    { src: "/Images/nimbus-lantern.jpg" },
+    { src: "/Images/wall-sconce.jpg" },
+    { src: "/Images/strip-led.jpg" },
+    { src: "/Images/lyra-outdoor-lantern.jpg" },
+    { src: "/Images/solara-hanging-light.jpg" },
+    { src: "/Images/vintage-lamp.jpg" },
+    { src: "/Images/pendant-lamp.jpg" },
+    { src: "/Images/zen-accent-light.jpg" },
+    { src: "/Images/outdoor-lantern.jpg" },
+    { src: "/Images/desk-lamp.jpg" },
+    { src: "/Images/floor-lamp.jpg" },
+    { src: "/Images/aria-reading-lamp.jpg" },
+    { src: "/Images/table-lamp.jpg" },
+    { src: "/Images/halo-patio-light.jpg" }
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
