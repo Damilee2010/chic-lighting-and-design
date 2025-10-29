@@ -5,6 +5,7 @@
 
 .led-section {
   background: #fff8dc;
+  width: 100%;
   padding: 48px 8%;
 }
 .led-badge {

@@ -16,6 +16,7 @@
   padding: 40px 5%;
   background: var(--bg);
   color: var(--text);
+  width: 100%;
   box-sizing: border-box;
   min-height: 100vh;
 }
