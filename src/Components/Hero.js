@@ -25,9 +25,9 @@
 
       <div className="hero-images">
         <img src="/Images/floor-lamp.jpg" alt="Modern sculptural floor lamp" className="big" />
-        <img src="/Images/image-1.png" alt="Minimalist ceiling light" className="sml" />
+        <img src="/Images/Image-1.png" alt="Minimalist ceiling light" className="sml" />
         <img src="/Images/hero.jpg" alt="Elegant spiral pendant light" className="big" />
-        <img src="/Images/image-2.png" alt="Designer table lamp with plants" className="sml" />
+        <img src="/Images/Image-2.png" alt="Designer table lamp with plants" className="sml" />
       </div>
     </section>
   );
