@@ -1,0 +1,180 @@
+.contact{
+    background-color: #fff8dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.contact h2{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.contact p{
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+form{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+    width: 100%;
+}
+
+.form label{
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form input, textarea, select{
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.form input:focus, textarea:focus, select:focus{
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.form textarea{
+    height: 120px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn{
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover{
+    background-color: #3a5a80;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn i{
+    margin-right: 10px;
+}
+
+.success{
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact{
+        padding: 30px 15px;
+    }
+    
+    form{
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .form input, textarea, select{
+        padding: 12px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .btn{
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+    
+    .contact p{
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact{
+        padding: 20px 10px;
+    }
+    
+    .contact h2{
+        margin-bottom: 5px;
+    }
+    
+    .contact p{
+        margin-bottom: 25px;
+        font-size: 0.9rem;
+    }
+    
+    .form{
+        gap: 6px;
+    }
+    
+    .form label{
+        font-size: 0.9rem;
+    }
+    
+    .btn{
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ensure proper display on very small screens */
+@media (max-width: 320px) {
+    .contact{
+        padding: 15px 8px;
+    }
+    
+    .form input, textarea, select{
+        padding: 10px;
+    }
+}

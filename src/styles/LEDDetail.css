@@ -1,0 +1,481 @@
+/* LEDDetail.css - Responsive LED Product Details */
+:root {
+  --primary: #fbbf24;
+  --dark: #2c2c2c;
+  --light: #e5e7eb;
+  --bg: #fbf6e3;
+  --text: #2c2c2c;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --radius: 12px;
+  --led-accent: #06d6a0;
+}
+
+.led-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 5%;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-back, .breadcrumb-link {
+  background: none;
+  border: none;
+  color: var(--led-accent);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.breadcrumb-back:hover, .breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: var(--muted);
+}
+
+.breadcrumb-current {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Main Content */
+.led-detail-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.led-image-section {
+  position: relative;
+}
+
+.led-image-container {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.led-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.led-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--led-accent);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* LED Info Section */
+.led-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.led-title {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+.led-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--led-accent);
+}
+
+.led-rating {
+  font-size: 1.2rem;
+  color: #f59e0b;
+}
+
+.led-short-description {
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 0;
+}
+
+.led-full-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Features */
+.led-features h3,
+.led-specifications h3,
+.led-benefits h3 {
+  margin-bottom: 16px;
+  color: var(--dark);
+  font-size: 1.3rem;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.feature-icon {
+  margin-right: 12px;
+  font-size: 1.1rem;
+}
+
+/* Specifications */
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: var(--radius);
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.spec-item:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-weight: 600;
+  color: var(--dark);
+  text-transform: capitalize;
+}
+
+.spec-value {
+  color: var(--muted);
+  text-align: right;
+}
+
+/* LED Benefits */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f0fdf4;
+  border-radius: var(--radius);
+  border: 1px solid #dcfce7;
+}
+
+.benefit-icon {
+  font-size: 1.2rem;
+}
+
+.benefit-text {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.9rem;
+}
+
+/* Action Buttons */
+.led-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 16px 32px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.btn-primary {
+  background: var(--led-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6, 214, 160, 0.3);
+}
+
+.btn-secondary {
+  background: var(--dark);
+  color: white;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(44, 44, 44, 0.3);
+}
+
+/* Related LED Products */
+.related-led-products {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 40px;
+}
+
+.related-led-products h3 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+.related-led-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.related-led-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.related-led-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.related-led-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.related-led-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.related-led-card:hover .related-led-image img {
+  transform: scale(1.05);
+}
+
+.related-led-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--led-accent);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.related-led-info {
+  padding: 20px;
+}
+
+.related-led-info h4 {
+  margin: 0 0 8px 0;
+  color: var(--dark);
+  font-size: 1.1rem;
+}
+
+.related-led-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.related-led-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.related-led-price {
+  font-weight: 700;
+  color: var(--led-accent);
+  font-size: 1.1rem;
+}
+
+.related-led-rating {
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Error State */
+.led-detail-error {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--muted);
+}
+
+.led-detail-error h2 {
+  margin-bottom: 16px;
+  color: var(--dark);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .led-detail {
+    padding: 40px 8%;
+  }
+  
+  .led-detail-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  
+  .led-image {
+    height: 500px;
+  }
+  
+  .spec-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .led-actions {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .led-detail {
+    padding: 60px 10%;
+  }
+  
+  .led-detail-content {
+    gap: 80px;
+  }
+  
+  .led-title {
+    font-size: 2.5rem;
+  }
+  
+  .related-led-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .led-detail {
+    padding: 20px 4%;
+  }
+  
+  .breadcrumb {
+    font-size: 12px;
+  }
+  
+  .led-title {
+    font-size: 1.75rem;
+  }
+  
+  .led-price {
+    font-size: 1.5rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefit-item {
+    padding: 10px;
+  }
+  
+  .btn {
+    padding: 14px 24px;
+    font-size: 0.9rem;
+    min-width: 140px;
+  }
+  
+  .led-actions {
+    flex-direction: column;
+  }
+  
+  .led-actions .btn {
+    width: 100%;
+  }
+  
+  .spec-grid {
+    padding: 16px;
+  }
+  
+  .related-led-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .btn:hover,
+  .related-led-card:hover {
+    transform: none;
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    box-shadow: none;
+  }
+}
