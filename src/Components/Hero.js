@@ -24,10 +24,10 @@
       </div>
 
       <div className="hero-images">
-        <img src="./images/floor-lamp.jpg" alt="Modern sculptural floor lamp" className="big" />
-        <img src="./images/image-1.png" alt="Minimalist ceiling light" className="sml" />
-        <img src="./images/hero.jpg" alt="Elegant spiral pendant light" className="big" />
-        <img src="./images/image-2.png" alt="Designer table lamp with plants" className="sml" />
+        <img src="/images/floor-lamp.jpg" alt="Modern sculptural floor lamp" className="big" />
+        <img src="/images/image-1.png" alt="Minimalist ceiling light" className="sml" />
+        <img src="/images/hero.jpg" alt="Elegant spiral pendant light" className="big" />
+        <img src="/images/image-2.png" alt="Designer table lamp with plants" className="sml" />
       </div>
     </section>
   );
