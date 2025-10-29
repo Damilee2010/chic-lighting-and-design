@@ -1,5 +1,5 @@
-// App.js
 import React from "react";
+import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Hero from "./Components/Hero";
 import ProductGrid from "./Components/ProductGrid";
