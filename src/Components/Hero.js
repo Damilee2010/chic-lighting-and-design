@@ -7,7 +7,7 @@
     <section className="hero-section">
       <div className="hero-content">
         <h1 className="hero-title">
-          Illuminate Your Space With<br />
+          Illuminate Your Space<br />
           <span className="span">Elegance</span>
         </h1>
         <p className="hero-lead">
@@ -24,10 +24,10 @@
       </div>
 
       <div className="hero-images">
-        <img src="/images/floor-lamp.jpg" alt="Modern sculptural floor lamp" className="big" />
-        <img src="/images/image-1.png" alt="Minimalist ceiling light" className="sml" />
-        <img src="/images/hero.jpg" alt="Elegant spiral pendant light" className="big" />
-        <img src="/images/image-2.png" alt="Designer table lamp with plants" className="sml" />
+        <img src="/Images/floor-lamp.jpg" alt="Modern sculptural floor lamp" className="big" />
+        <img src="/Images/image-1.png" alt="Minimalist ceiling light" className="sml" />
+        <img src="/Images/hero.jpg" alt="Elegant spiral pendant light" className="big" />
+        <img src="/Images/image-2.png" alt="Designer table lamp with plants" className="sml" />
       </div>
     </section>
   );
