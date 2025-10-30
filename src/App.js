@@ -11,6 +11,7 @@ import LEDCollection from "./Components/LEDCollection";
 import Header from "./Components/Header";
 import ProductDetail from "./contexts/ProductDetail"; 
 import LEDDetail from "./Components/LEDDetail";
+// import New from "./Components/New";
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
       <Offers />
       <Gallery/>
       <Contact/>
+      {/* <New /> */}
     </React.Fragment>
   );
 }
