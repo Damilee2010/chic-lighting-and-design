@@ -1,6 +1,7 @@
 // Header.js
 import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { CartContext } from '../contexts/CartContext';
 import { SearchContext } from '../contexts/SearchContext';
 import Visitor from './Visitor';
@@ -11,6 +12,7 @@ function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const close = () => setOpen(false);
+  // profile dropdown moved to side-sheet
   
   // Safely get context with fallbacks
   const cart = useContext(CartContext) || {};
@@ -77,6 +79,8 @@ function Header() {
     }, 300); // Match the transition duration
   };
 
+  const { user, logout } = useAuth() || {};
+
   // Safe context functions with fallbacks
   const toggleSearch = () => {
     if (search.toggle) {
@@ -93,6 +97,14 @@ function Header() {
       console.warn('Cart context not available');
     }
   };
+
+  const handleLogout = () => {
+    if (logout) logout();
+    close();
+    navigate('/login');
+  };
+
+  // (no profile dropdown here)
 
   const closeCart = () => {
     if (cart.close) {
@@ -125,6 +137,17 @@ function Header() {
           <span className="cart-count">{cart?.totals?.totalCount || 0}</span>
         </button>
         {!isMobile && <Visitor/>}
+
+        {/* Small user indicator - opens the side sheet where full profile actions live */}
+        <div className="nav-profile">
+          {user ? (
+            <button className="profile-btn" onClick={() => setOpen(true)} aria-label="Open menu with profile">
+              {user.fullname ? user.fullname.split(' ')[0] : user.email}
+            </button>
+          ) : (
+            <NavLink to="/login" className="navlink">Login</NavLink>
+          )}
+        </div>
         <button className="menu-btn" onClick={() => setOpen((s) => !s)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
           <i className="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
@@ -210,6 +233,22 @@ function Header() {
           <button className="sheet-close" onClick={close} aria-label="Close menu">
             Close <i className="fa-solid fa-times" aria-hidden="true"></i>
           </button>
+        </div>
+        {/* Profile block inside the side-sheet */}
+        <div className="sheet-profile">
+          {user ? (
+            <div className="sheet-profile-inner">
+              <div className="sheet-profile-name">{user.fullname || user.email}</div>
+              <div className="sheet-profile-actions">
+                <button className="sheet-action" onClick={handleLogout}>Logout</button>
+              </div>
+            </div>
+          ) : (
+            <div className="sheet-profile-inner">
+              <NavLink to="/login" className="sheet-action" onClick={close}>Login</NavLink>
+              <NavLink to="/register" className="sheet-action" onClick={close}>Register</NavLink>
+            </div>
+          )}
         </div>
         {/* Mobile Actions Section - Show in menu on mobile */}
         {isMobile && (

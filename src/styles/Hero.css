@@ -251,6 +251,55 @@ img {
   font-size: 18px;
 }
 
+/* Profile / user dropdown styles */
+.nav-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-inline { display: inline-flex; align-items: center; position: relative; }
+
+.profile-btn {
+  background: transparent;
+  border: none;
+  color: var(--light);
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.profile-btn:focus { outline: 2px solid rgba(251,191,36,0.25); }
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 160px;
+  background: #ffffff;
+  color: var(--dark);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(2,6,23,0.18);
+  padding: 8px 6px;
+  z-index: 1300;
+}
+.profile-dropdown li {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.profile-dropdown li:hover { background: var(--bg); color: var(--accent); }
+.profile-dropdown li:active { transform: translateY(1px); }
+
+/* Small screens: align dropdown to the left to avoid overflow */
+@media (max-width: 480px) {
+  .profile-dropdown { right: auto; left: 8px; }
+}
+
 .menu-btn {
   background: transparent;
   border: none;
@@ -359,6 +408,43 @@ img {
 .no-scroll {
   overflow: hidden;
   touch-action: none;
+}
+
+/* Side-sheet profile block */
+.sheet-profile {
+  padding: 14px 16px;
+  border-bottom: 1px solid hsl(220, 14%, 96%);
+  background: #fff;
+}
+.sheet-profile-inner{
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  gap: 20px;
+}
+.sheet-profile-inner { display: flex; flex-direction: column; gap: 8px; }
+.sheet-profile-name { font-weight: 700; color: #111827; font-size: 1rem; }
+.sheet-profile-actions { display: flex; gap: 8px; }
+.sheet-action {
+  background: transparent;
+  border: 1px solid var(--light);
+  color: var(--dark);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.sheet-action:hover { background: var(--bg); color: var(--accent); border-color: var(--accent); }
+
+/* Responsive: truncate long profile names on small screens */
+@media (max-width: 480px) {
+  .sheet-profile-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 24px);
+  }
 }
 
 
