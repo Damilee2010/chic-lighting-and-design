@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { CartContext } from '../contexts/CartContext';
 import { SearchContext } from '../contexts/SearchContext';
@@ -11,22 +11,22 @@ function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const close = () => setOpen(false);
-  
+
   const cart = useContext(CartContext) || {};
   const search = useContext(SearchContext) || {};
+  const { user, logout } = useAuth() || {};
 
+  // ✅ Detect mobile view for logo switch
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 640);
     };
-
     checkScreenSize();
-
     window.addEventListener('resize', checkScreenSize);
-
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
+  // Maintain header height as a CSS variable
   useEffect(() => {
     const setHeaderHeight = () => {
       const header = document.querySelector('.header');
@@ -34,18 +34,16 @@ function Header() {
         document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
       }
     };
-
     setHeaderHeight();
-
     window.addEventListener('resize', setHeaderHeight);
     window.addEventListener('orientationchange', setHeaderHeight);
-
     return () => {
       window.removeEventListener('resize', setHeaderHeight);
       window.removeEventListener('orientationchange', setHeaderHeight);
     };
   }, []);
 
+  // Prevent scroll when overlays or side sheets are open
   useEffect(() => {
     if (open || cart?.openCart || search?.openSearch) {
       document.body.classList.add('no-scroll');
@@ -55,6 +53,7 @@ function Header() {
     return () => document.body.classList.remove('no-scroll');
   }, [open, cart?.openCart, search?.openSearch]);
 
+  // Search handlers
   const handleSearch = (e) => {
     if (e.key === 'Enter' || e.type === 'click') {
       console.log('Searching for:', search.query);
@@ -63,13 +62,11 @@ function Header() {
 
   const handleCloseSearch = () => {
     if (search.close) search.close();
-    if (search.setQuery) search.setQuery(''); 
+    if (search.setQuery) search.setQuery('');
   };
 
   const handleResultClick = (product) => {
-    console.log('Selected product:', product);
     handleCloseSearch();
-    
     if (product.type === 'led' || (product.id && product.id >= 200)) {
       navigate(`/led/${product.id}`);
     } else {
@@ -77,61 +74,40 @@ function Header() {
     }
   };
 
+  // Menu + cart actions
   const handleMenuAction = (action) => {
     close();
     setTimeout(() => {
-      if (typeof action === 'function') {
-        action();
-      }
+      if (typeof action === 'function') action();
     }, 300);
   };
 
-  const { user, logout } = useAuth() || {};
-
-  const toggleSearch = () => {
-    if (search.toggle) {
-      search.toggle();
-    } else {
-      console.warn('Search context not available');
-    }
-  };
-
-  const toggleCart = () => {
-    if (cart.toggleCart) {
-      cart.toggleCart();
-    } else {
-      console.warn('Cart context not available');
-    }
-  };
-
+  const toggleSearch = () => search.toggle?.();
+  const toggleCart = () => cart.toggleCart?.();
   const handleLogout = () => {
-    if (logout) logout();
+    logout?.();
     close();
     navigate('/login');
   };
 
-  const closeCart = () => {
-    if (cart.close) {
-      cart.close();
-    }
-  };
-
-  const updateCartQty = (id, qty) => {
-    if (cart.updateQty && qty >= 0) {
-      cart.updateQty(id, qty);
-    }
-  };
-
-  const removeFromCart = (id) => {
-    if (cart.removeFromCart) {
-      cart.removeFromCart(id);
-    }
-  };
+  const closeCart = () => cart.close?.();
+  const updateCartQty = (id, qty) => cart.updateQty && qty >= 0 && cart.updateQty(id, qty);
+  const removeFromCart = (id) => cart.removeFromCart?.(id);
 
   return (
     <div className="header">
-      <h1 className="header-title"><span className="span">Chic</span> Lightings and Designs</h1>
+      {/* ✅ Responsive Logo with Fade Animation */}
+      <div className="logo-wrapper">
+        <Link to="/" className="header-title fade-logo">
+          {isMobile ? "CLD" : (
+            <>
+              <span className="span">Chic</span> Lightings and Designs
+            </>
+          )}
+        </Link>
+      </div>
 
+      {/* Icons Section */}
       <div className="icons">
         <button className="icon-btn" onClick={toggleSearch} aria-label="Open search">
           <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -140,7 +116,7 @@ function Header() {
           <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
           <span className="cart-count">{cart?.totals?.totalCount || 0}</span>
         </button>
-        <Visitor/>
+        <Visitor />
         <div className="nav-profile">
           {user ? (
             <button className="profile-btn" onClick={() => setOpen(true)} aria-label="Open menu with profile">
@@ -155,22 +131,19 @@ function Header() {
         </button>
       </div>
 
+      {/* Overlay */}
       <div 
         className={`sheet-overlay ${(open || cart?.openCart || search?.openSearch) ? 'visible' : ''}`} 
         onClick={() => { 
           close();
-          if (cart.close) cart.close();
+          closeCart();
           handleCloseSearch();
         }}
         aria-hidden="true"
       />
 
-      <div 
-        className={`search-overlay ${search?.openSearch ? 'visible' : ''}`} 
-        aria-modal="true" 
-        role="dialog" 
-        aria-label="Search"
-      >
+      {/* Search Overlay */}
+      <div className={`search-overlay ${search?.openSearch ? 'visible' : ''}`} aria-modal="true" role="dialog" aria-label="Search">
         <div className="search-container">
           <div className="search-box">
             <input
@@ -226,6 +199,7 @@ function Header() {
         </div>
       </div>
 
+      {/* Menu Side Sheet */}
       <aside className={`side-sheet ${open ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!open}>
         <div className="sheet-header">
           <h3>Menu</h3>
@@ -233,6 +207,7 @@ function Header() {
             Close <i className="fa-solid fa-times" aria-hidden="true"></i>
           </button>
         </div>
+
         <div className="sheet-profile">
           {user ? (
             <div className="sheet-profile-inner">
@@ -248,39 +223,41 @@ function Header() {
             </div>
           )}
         </div>
+
         {isMobile && (
           <div className="mobile-actions">
             <div className="action-item" onClick={() => handleMenuAction(toggleSearch)}>
-              <i className="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
               <span>Search</span>
             </div>
             <div className="action-item" onClick={() => handleMenuAction(toggleCart)}>
-              <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              <i className="fa-solid fa-cart-shopping"></i>
               <span>Cart</span>
               <span className="cart-count">{cart?.totals?.totalCount || 0}</span>
             </div>
             <div className="action-item visitor-item">
-              <Visitor/>
+              <Visitor />
             </div>
           </div>
         )}
 
         <nav className="sheet-nav">
-          <NavLink to="/" onClick={close} className={({isActive}) => isActive ? 'navlink active': 'navlink'}>Home</NavLink>
-          <NavLink to="/products" onClick={close} className={({isActive}) => isActive ? 'navlink active': 'navlink'}>Products</NavLink>
-          <NavLink to="/led" onClick={close} className={({isActive}) => isActive ? 'navlink active': 'navlink'}>LEDs</NavLink>
-          <NavLink to="/gallery" onClick={close} className={({isActive}) => isActive ? 'navlink active': 'navlink'}>Gallery</NavLink>
-          <NavLink to="/offers" onClick={close} className={({isActive}) => isActive ? 'navlink active': 'navlink'}>Offers</NavLink>
-          <NavLink to="/contact" onClick={close} className={({isActive}) => isActive ? 'navlink active': 'navlink'}>Contact</NavLink>
+          <NavLink to="/" onClick={close} className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>Home</NavLink>
+          <NavLink to="/products" onClick={close} className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>Products</NavLink>
+          <NavLink to="/led" onClick={close} className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>LEDs</NavLink>
+          <NavLink to="/gallery" onClick={close} className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>Gallery</NavLink>
+          <NavLink to="/offers" onClick={close} className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>Offers</NavLink>
+          <NavLink to="/contact" onClick={close} className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>Contact</NavLink>
         </nav>
 
         {!isMobile && (
           <div className="desktop-actions">
-            <Visitor/>
+            <Visitor />
           </div>
         )}
       </aside>
 
+      {/* Cart Side Sheet */}
       <aside className={`side-sheet cart-sheet ${cart?.openCart ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!cart?.openCart}>
         <div className="cart-header">
           <h3>Your Cart</h3>

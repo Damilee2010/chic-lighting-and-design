@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import '../styles/Visitor.css';
+import '../styles/Visitor.css';
 
 const Visitor = () => {
   const [visitorCount, setVisitorCount] = useState(0);
