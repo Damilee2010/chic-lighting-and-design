@@ -6,3 +6,77 @@
     list-style: none;
   overflow-x: hidden;
 }
+
+:root {
+  --bg: #fbf6e3;
+  --text: #2c2c2c;
+  --accent: #fbbf24;
+  --dark: #2c2c2c;
+  --radius: 12px;
+  --light: #e5e7eb;
+  --header-height: 70px; 
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  width: 100%;
+  height: auto;
+  color: var(--text);
+  padding-top: var(--header-height);
+}
+
+section {
+  padding: 40px 5%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  margin: 10px auto 0;
+  border-radius: 3px;
+}
+
+.btn {
+  background: var(--accent);
+  color: var(--dark);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  border-radius: 16px;
+  max-width: 100%;
+  display: block;
+}

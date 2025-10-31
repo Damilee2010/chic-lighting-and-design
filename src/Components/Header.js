@@ -1,4 +1,3 @@
-// Header.js
 import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -12,26 +11,39 @@ function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const close = () => setOpen(false);
-  // profile dropdown moved to side-sheet
   
-  // Safely get context with fallbacks
   const cart = useContext(CartContext) || {};
   const search = useContext(SearchContext) || {};
 
-  // Check if mobile screen - updated for 412px and below
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 640);
     };
 
-    // Initial check
     checkScreenSize();
 
-    // Add event listener
     window.addEventListener('resize', checkScreenSize);
 
-    // Cleanup
     return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    const setHeaderHeight = () => {
+      const header = document.querySelector('.header');
+      if (header) {
+        document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+      }
+    };
+
+    setHeaderHeight();
+
+    window.addEventListener('resize', setHeaderHeight);
+    window.addEventListener('orientationchange', setHeaderHeight);
+
+    return () => {
+      window.removeEventListener('resize', setHeaderHeight);
+      window.removeEventListener('orientationchange', setHeaderHeight);
+    };
   }, []);
 
   useEffect(() => {
@@ -46,7 +58,6 @@ function Header() {
   const handleSearch = (e) => {
     if (e.key === 'Enter' || e.type === 'click') {
       console.log('Searching for:', search.query);
-      // Add your search logic here
     }
   };
 
@@ -59,29 +70,24 @@ function Header() {
     console.log('Selected product:', product);
     handleCloseSearch();
     
-    // Navigate to appropriate details page based on product type or ID range
     if (product.type === 'led' || (product.id && product.id >= 200)) {
-      // LED products - navigate to LED details
       navigate(`/led/${product.id}`);
     } else {
-      // Regular products - navigate to product details
       navigate(`/products/${product.id}`);
     }
   };
 
-  // Function to handle menu item clicks that also trigger other actions
   const handleMenuAction = (action) => {
-    close(); // Close the menu first
+    close();
     setTimeout(() => {
       if (typeof action === 'function') {
-        action(); // Then perform the action
+        action();
       }
-    }, 300); // Match the transition duration
+    }, 300);
   };
 
   const { user, logout } = useAuth() || {};
 
-  // Safe context functions with fallbacks
   const toggleSearch = () => {
     if (search.toggle) {
       search.toggle();
@@ -103,8 +109,6 @@ function Header() {
     close();
     navigate('/login');
   };
-
-  // (no profile dropdown here)
 
   const closeCart = () => {
     if (cart.close) {
@@ -136,9 +140,7 @@ function Header() {
           <i className="fa-solid fa-cart-shopping" aria-hidden="true"></i>
           <span className="cart-count">{cart?.totals?.totalCount || 0}</span>
         </button>
-        {!isMobile && <Visitor/>}
-
-        {/* Small user indicator - opens the side sheet where full profile actions live */}
+        <Visitor/>
         <div className="nav-profile">
           {user ? (
             <button className="profile-btn" onClick={() => setOpen(true)} aria-label="Open menu with profile">
@@ -153,7 +155,6 @@ function Header() {
         </button>
       </div>
 
-      {/* Combined overlay for menu and cart */}
       <div 
         className={`sheet-overlay ${(open || cart?.openCart || search?.openSearch) ? 'visible' : ''}`} 
         onClick={() => { 
@@ -164,7 +165,6 @@ function Header() {
         aria-hidden="true"
       />
 
-      {/* Search Overlay */}
       <div 
         className={`search-overlay ${search?.openSearch ? 'visible' : ''}`} 
         aria-modal="true" 
@@ -226,7 +226,6 @@ function Header() {
         </div>
       </div>
 
-      {/* Navigation Side Sheet */}
       <aside className={`side-sheet ${open ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!open}>
         <div className="sheet-header">
           <h3>Menu</h3>
@@ -234,7 +233,6 @@ function Header() {
             Close <i className="fa-solid fa-times" aria-hidden="true"></i>
           </button>
         </div>
-        {/* Profile block inside the side-sheet */}
         <div className="sheet-profile">
           {user ? (
             <div className="sheet-profile-inner">
@@ -250,7 +248,6 @@ function Header() {
             </div>
           )}
         </div>
-        {/* Mobile Actions Section - Show in menu on mobile */}
         {isMobile && (
           <div className="mobile-actions">
             <div className="action-item" onClick={() => handleMenuAction(toggleSearch)}>
@@ -277,7 +274,6 @@ function Header() {
           <NavLink to="/contact" onClick={close} className={({isActive}) => isActive ? 'navlink active': 'navlink'}>Contact</NavLink>
         </nav>
 
-        {/* Desktop Actions Section - Only show in menu on desktop */}
         {!isMobile && (
           <div className="desktop-actions">
             <Visitor/>
@@ -285,7 +281,6 @@ function Header() {
         )}
       </aside>
 
-      {/* Cart Side Sheet */}
       <aside className={`side-sheet cart-sheet ${cart?.openCart ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!cart?.openCart}>
         <div className="cart-header">
           <h3>Your Cart</h3>

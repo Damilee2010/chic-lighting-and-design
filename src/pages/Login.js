@@ -50,6 +50,7 @@ function Login() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
+                                required
                             />
                         </div>
 
@@ -61,13 +62,13 @@ function Login() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Enter your password"
+                                required
                             />
                         </div>
 
-                        <div className="from-group">
-                            <label htmlFor="remember">
-                                <input type="checkbox" id="remember" /> Remember me
-                            </label>
+                        <div className="form-group check">
+                            <input type="checkbox" id="remember" />
+                            <label htmlFor="remember">Remember me</label>
                         </div>
 
                         <button type="submit" className="submit-button">

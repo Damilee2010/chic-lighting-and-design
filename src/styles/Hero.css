@@ -1,79 +1,3 @@
-:root {
-  --bg: #fbf6e3;
-  --text: #2c2c2c;
-  --accent: #fbbf24;
-  --dark: #2c2c2c;
-  --radius: 12px;
-  --light: #e5e7eb;
-  --header-height: 70px; 
-}
-*{
-  overflow: hidden;
-}
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: var(--bg);
-  width: 100%;
-  height: auto;
-  color: var(--text);
-  padding-top: var(--header-height);
-}
-
-section {
-  padding: 40px 5%;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-}
-
-h2 {
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-  position: relative;
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--accent);
-  margin: 10px auto 0;
-  border-radius: 3px;
-}
-
-.btn {
-  background: var(--accent);
-  color: var(--dark);
-  padding: 12px 20px;
-  border-radius: var(--radius);
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  width: 100%;
-  max-width: 280px;
-  box-sizing: border-box;
-}
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-img {
-  border-radius: 16px;
-  max-width: 100%;
-  display: block;
-}
-
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -136,6 +60,7 @@ img {
   margin-top: 16px;
   max-width: 260px; 
   font-weight: 700;
+  background-color: #fbbf24;
   transition: all 0.3s ease;
 }
 .hero-content .btn:hover {
@@ -218,15 +143,17 @@ img {
   align-items: center;
   background-color: var(--dark);
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.418);
-  height: var(--header-height);
-  padding: 8px 4%;
-  position: fixed;
+  height:auto;
+  padding-bottom: 20px;
+  position: fixed;  
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .header-title {
@@ -253,7 +180,6 @@ img {
   font-size: 18px;
 }
 
-/* Profile / user dropdown styles */
 .nav-profile {
   position: relative;
   display: flex;
@@ -297,7 +223,6 @@ img {
 .profile-dropdown li:hover { background: var(--bg); color: var(--accent); }
 .profile-dropdown li:active { transform: translateY(1px); }
 
-/* Small screens: align dropdown to the left to avoid overflow */
 @media (max-width: 480px) {
   .profile-dropdown { right: auto; left: 8px; }
 }
@@ -412,7 +337,6 @@ img {
   touch-action: none;
 }
 
-/* Side-sheet profile block */
 .sheet-profile {
   padding: 14px 16px;
   border-bottom: 1px solid hsl(220, 14%, 96%);
@@ -439,7 +363,6 @@ img {
 }
 .sheet-action:hover { background: var(--bg); color: var(--accent); border-color: var(--accent); }
 
-/* Responsive: truncate long profile names on small screens */
 @media (max-width: 480px) {
   .sheet-profile-name {
     white-space: nowrap;
@@ -665,16 +588,26 @@ img {
   padding: 20px 16px;
 }
 .cart-count {
-  display: inline-block;
-  background: var(--accent);
-  color: #2c2c2c;
-  top: 100px;
   position: absolute;
-  padding: 2px 6px;
+  top: -6px;
+  right: -6px;
+  background: #fff;
+  color: #8a5800;
+  padding: 1px 5px;
   border-radius: 999px;
-  margin-left: 6px;
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 1;
+  min-width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .cart-header {
@@ -802,7 +735,9 @@ img {
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
   position: relative;
   font-size: 14px;
+  overflow: hidden;
 }
+
 .icon-btn i {
   position: relative;
 }
@@ -824,7 +759,6 @@ img {
   font-size: 10px;
 }
 
-/* MOBILE ACTIONS IN SIDE SHEET */
 .mobile-actions {
   display: flex;
   flex-direction: column;
@@ -867,14 +801,12 @@ img {
   background: transparent !important;
 }
 
-/* DESKTOP ACTIONS */
 .desktop-actions {
   margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid #f0f0f0;
 }
 
-/* FIX BUTTON HOVER EFFECTS ON MOBILE */
 @media (hover: none) {
   .btn:hover,
   .icon-btn:hover,
@@ -884,16 +816,7 @@ img {
   }
 }
 
-/* TABLET STYLES (768px and above) */
 @media (min-width: 768px) {
-  :root {
-    --header-height: 76px;
-  }
-  
-  body {
-    padding-top: var(--header-height);
-  }
-  
   .header {
     height: var(--header-height);
     padding: 8px 5%;
@@ -977,7 +900,6 @@ img {
   }
 }
 
-/* DESKTOP STYLES (1024px and above) */
 @media (min-width: 1024px) {
   .header {
     padding: 8px 10%;
@@ -1001,8 +923,7 @@ img {
   }
 }
 
-/* VERY SMALL SCREENS (360px and below) */
-@media (max-width: 490px) {
+@media (max-width: 360px) {
   .header-title {
     font-size: 16px;
   }
@@ -1043,7 +964,18 @@ img {
   }
 }
 
-/* ENSURE IMAGES ARE RESPONSIVE */
+@media (max-width: 480px) {
+  .icons .icon-btn:not(:last-child) {
+    display: none;
+  }
+  .icons {
+    gap: 12px;
+  }
+  .nav-profile {
+    margin-left: auto;
+  }
+}
+
 .hero-images img {
   width: 100%;
   height: 100%;
@@ -1051,7 +983,6 @@ img {
   border-radius: 12px;
 }
 
-/* ANIMATIONS */
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -1067,7 +998,6 @@ img {
   animation: slideInUp 0.3s ease forwards;
 }
 
-/* SCROLLBAR STYLING */
 .search-results-list::-webkit-scrollbar {
   width: 4px;
 }

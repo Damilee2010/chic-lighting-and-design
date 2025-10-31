@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import '../styles/Visitor.css';
 
 const Visitor = () => {
   const [visitorCount, setVisitorCount] = useState(0);
@@ -6,9 +7,8 @@ const Visitor = () => {
   useEffect(() => {
     const now = Date.now();
     const lastVisit = localStorage.getItem('lastVisitTime');
-    const timeThreshold = 30 * 60 * 1000; // 30 minutes
+    const timeThreshold = 30 * 60 * 1000; 
     
-    // Only count as new visit if last visit was more than 30 minutes ago
     if (!lastVisit || (now - parseInt(lastVisit)) > timeThreshold) {
       const storedCount = localStorage.getItem("visitorCount");
       const currentCount = storedCount ? parseInt(storedCount) : 0;
