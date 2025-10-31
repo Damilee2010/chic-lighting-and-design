@@ -1026,6 +1026,12 @@
   .nav-profile {
     margin-left: auto;
   }
+   .rating {
+    display: none;
+  }
+  .product-meta {
+    justify-content: flex-start;
+  }
 }
 
 .hero-images img {
@@ -1112,6 +1118,12 @@
     letter-spacing: 0.5px;
     padding-left: 10px;
     padding-right: 70px;
+  }
+   .rating {
+    display: none;
+  }
+  .product-meta {
+    justify-content: flex-start;
   }
 }
 
